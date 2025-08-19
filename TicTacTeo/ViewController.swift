@@ -39,20 +39,67 @@ class ViewController: UIViewController {
     
     let NOUGHT = "O"
     let CROSS = "X"
+    var board : [UIButton] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        initBoard()
     }
-    
-    
     
     @IBAction func SelectedButton(_ sender: UIButton) {
         addToBoard(sender)
+        if (fullBoard()){
+            resultAlert(title: "Draw")
+        }
     }
     
+    func initBoard(){
+        board.append(a1Button)
+        board.append(a2Button)
+        board.append(a3Button)
+        board.append(b1Button)
+        board.append(b2Button)
+        board.append(b3Button)
+        board.append(c1Button)
+        board.append(c2Button)
+        board.append(c3Button)
+    }
+    func resultAlert(title: String){
+        let ac = UIAlertController(title: title, message: nil, preferredStyle: .actionSheet)
+        ac.addAction(UIAlertAction(title: "Reset", style: .default, handler: { _ in
+            print("resetting borad")
+            self.resetBoard()
+        }))
+        present(ac, animated: true)
+    }
+    func resetBoard(){
+        for button in board{
+            button.setAttributedTitle(nil, for: .normal)
+            button.setTitle("", for: .normal)
+            button.isEnabled = true
+        }
+        if(firstTurn == Turn.O){
+            firstTurn = Turn.X
+            turnLabel.text  = "X's Turn"
+        }
+        else if (firstTurn == Turn.X){
+            firstTurn = Turn.O
+            turnLabel.text  = "O's Turn"
+        }
+        currentTurn = firstTurn
+    }
+    
+    func fullBoard() ->Bool{
+        for button in board{
+            if button.currentAttributedTitle == nil{
+                return false
+            }
+        }
+        return true
+    }
     func addToBoard(_ sender: UIButton){
-        if(sender.currentTitle == nil && sender.currentAttributedTitle == nil){
+        if(sender.currentAttributedTitle == nil){
             var attributeTitle: NSAttributedString?
             
             if(currentTurn == Turn.O){
@@ -71,6 +118,8 @@ class ViewController: UIViewController {
             sender.isEnabled = false
         }
     }
+    
+    
 
 }
 
