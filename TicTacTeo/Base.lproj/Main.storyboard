@@ -3,6 +3,7 @@
     <device id="retina6_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -35,7 +36,7 @@
                                                 <rect key="frame" x="133.66666666666669" y="0.0" width="128.66666666666669" height="128.66666666666666"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="tinted"/>
+                                                <buttonConfiguration key="configuration" style="plain"/>
                                                 <connections>
                                                     <action selector="SelectedButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bN5-7s-PkO"/>
                                                 </connections>
@@ -58,7 +59,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="128.66666666666666" height="128.66666666666666"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="tinted"/>
+                                                <buttonConfiguration key="configuration" style="plain"/>
                                                 <connections>
                                                     <action selector="SelectedButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="K4K-Ri-qld"/>
                                                 </connections>
@@ -76,7 +77,7 @@
                                                 <rect key="frame" x="267.33333333333331" y="0.0" width="128.66666666666669" height="128.66666666666666"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="tinted"/>
+                                                <buttonConfiguration key="configuration" style="plain"/>
                                                 <connections>
                                                     <action selector="SelectedButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8GQ-X9-SWh"/>
                                                 </connections>
@@ -99,7 +100,7 @@
                                                 <rect key="frame" x="133.66666666666669" y="0.0" width="128.66666666666669" height="128.66666666666666"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="tinted"/>
+                                                <buttonConfiguration key="configuration" style="plain"/>
                                                 <connections>
                                                     <action selector="SelectedButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="s64-13-cLF"/>
                                                 </connections>
@@ -116,19 +117,13 @@
                                         </subviews>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" name="BoardColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="WgE-uV-bIb" secondAttribute="height" multiplier="1:1" id="9yY-wC-LE8"/>
                                 </constraints>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Turn" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qok-yl-8hu">
-                                <rect key="frame" x="193.66666666666666" y="134" width="53" height="33.666666666666657"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C0Y-1T-BDH">
-                                <rect key="frame" x="198.66666666666666" y="177.66666666666666" width="43" height="71.666666666666657"/>
+                                <rect key="frame" x="198.66666666666666" y="144" width="43" height="71.666666666666686"/>
                                 <string key="text" base64-UTF8="YES">
 CFg
 </string>
@@ -140,12 +135,10 @@ CFg
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="C0Y-1T-BDH" firstAttribute="top" secondItem="Qok-yl-8hu" secondAttribute="bottom" constant="10" id="L6z-HX-pFI"/>
                             <constraint firstItem="WgE-uV-bIb" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="MXC-1n-wUh"/>
                             <constraint firstItem="WgE-uV-bIb" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="NAl-7a-RL0"/>
                             <constraint firstItem="C0Y-1T-BDH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="RWk-vP-LIN"/>
-                            <constraint firstItem="Qok-yl-8hu" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="oGJ-Gx-P7T"/>
-                            <constraint firstItem="Qok-yl-8hu" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="rok-lW-LTF"/>
+                            <constraint firstItem="C0Y-1T-BDH" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="n6U-1H-lGS"/>
                             <constraint firstItem="WgE-uV-bIb" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.9" id="vGJ-wa-6FR"/>
                         </constraints>
                     </view>
@@ -178,6 +171,9 @@ CFg
         </scene>
     </scenes>
     <resources>
+        <namedColor name="BoardColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
