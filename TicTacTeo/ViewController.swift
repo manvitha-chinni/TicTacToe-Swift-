@@ -80,32 +80,56 @@ class ViewController: UIViewController {
         
         //Horizontal check
         if thisSymbol(a1Button, s) && thisSymbol(a2Button, s) && thisSymbol(a3Button, s){
+            a1Button.backgroundColor = UIColor(named: "WinColor")
+            a2Button.backgroundColor = UIColor(named: "WinColor")
+            a3Button.backgroundColor = UIColor(named: "WinColor")
             return true
         }
         if thisSymbol(b1Button, s) && thisSymbol(b2Button, s) && thisSymbol(b3Button, s){
+            b1Button.backgroundColor = UIColor(named: "WinColor")
+            b2Button.backgroundColor = UIColor(named: "WinColor")
+            b3Button.backgroundColor = UIColor(named: "WinColor")
             return true
         }
         if thisSymbol(c1Button, s) && thisSymbol(c2Button, s) && thisSymbol(c3Button, s){
+            c1Button.backgroundColor = UIColor(named: "WinColor")
+            c2Button.backgroundColor = UIColor(named: "WinColor")
+            c3Button.backgroundColor = UIColor(named: "WinColor")
             return true
         }
         
         //verticle check
         if thisSymbol(a1Button, s) && thisSymbol(b1Button, s) && thisSymbol(c1Button, s){
+            a1Button.backgroundColor = UIColor(named: "WinColor")
+            b1Button.backgroundColor = UIColor(named: "WinColor")
+            c1Button.backgroundColor = UIColor(named: "WinColor")
             return true
         }
         if thisSymbol(a2Button, s) && thisSymbol(b2Button, s) && thisSymbol(c2Button, s){
+            a2Button.backgroundColor = UIColor(named: "WinColor")
+            b2Button.backgroundColor = UIColor(named: "WinColor")
+            c2Button.backgroundColor = UIColor(named: "WinColor")
             return true
         }
         if thisSymbol(a3Button, s) && thisSymbol(b3Button, s) && thisSymbol(c3Button, s){
+            a3Button.backgroundColor = UIColor(named: "WinColor")
+            b3Button.backgroundColor = UIColor(named: "WinColor")
+            c3Button.backgroundColor = UIColor(named: "WinColor")
             return true
         }
         
         
         //cross check
         if thisSymbol(a1Button, s) && thisSymbol(b2Button, s) && thisSymbol(c3Button, s){
+            a1Button.backgroundColor = UIColor(named: "WinColor")
+            b2Button.backgroundColor = UIColor(named: "WinColor")
+            c3Button.backgroundColor = UIColor(named: "WinColor")
             return true
         }
         if thisSymbol(c1Button, s) && thisSymbol(b2Button, s) && thisSymbol(a3Button, s){
+            c1Button.backgroundColor = UIColor(named: "WinColor")
+            b2Button.backgroundColor = UIColor(named: "WinColor")
+            a3Button.backgroundColor = UIColor(named: "WinColor")
             return true
         }
             
@@ -127,6 +151,7 @@ class ViewController: UIViewController {
     }
     func resetBoard(){
         for button in board{
+            button.backgroundColor = .systemBackground
             button.setAttributedTitle(nil, for: .normal)
             button.setTitle("", for: .normal)
             button.isEnabled = true
