@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class TwoPlayerViewController: UIViewController {
 
     @IBOutlet weak var turnLabel: UILabel!
 
@@ -48,6 +48,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         initBoard()
+        turnLabel.text = firstTurn == .X ? "X's Turn" : "O's Turn"
     }
     
     @IBAction func SelectedButton(_ sender: UIButton) {
