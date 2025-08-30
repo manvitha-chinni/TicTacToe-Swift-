@@ -7,15 +7,41 @@
 
 import UIKit
 
+
+enum Modes: Int{
+    case Dumb = 0
+    case Easy = 1
+    case Hard = 2
+}
+
 class ModeViewController: UIViewController {
 
+    @IBOutlet weak var selectMode: UISegmentedControl!
+    
+    static var selectedMode: Modes = .Easy
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func ModeSelected(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0:
+            ModeViewController.selectedMode = .Dumb
+        case 1:
+            ModeViewController.selectedMode = .Easy
+        case 2:
+            ModeViewController.selectedMode = .Hard
+        default:
+            break
+        }
+        
+        print("mode: \(ModeViewController.selectedMode)")
+        
+    }
+    
     /*
     // MARK: - Navigation
 

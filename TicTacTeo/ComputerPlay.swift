@@ -73,4 +73,38 @@ class ComputerPlay{
         return move
     }
     
+    static func randomMove() -> Int?{
+        if isBoardFull(ComputerPlay.board){
+            return nil
+        }
+        let randomIndex = Int.random(in: 0..<board.count)
+        if(board[randomIndex] == ""){
+            return randomIndex
+        }
+        return randomMove()
+    }
+    
+    static func mediumMove() -> Int?{
+        for i in 0..<9 {
+                if board[i] == "" {
+                    var newBoard = board
+                    newBoard[i] = "O"
+                    if isWinner("O", newBoard) {
+                        return i
+                    }
+                }
+            }
+        for i in 0..<9{
+            if board[i] == "" {
+                var newBoard = board
+                newBoard[i] = "X"
+                if isWinner("X", newBoard){
+                    return i
+                }
+            }
+        }
+        
+        return randomMove()
+    }
+    
 }

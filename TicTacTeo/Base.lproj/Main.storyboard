@@ -178,11 +178,11 @@ CFg
                         <rect key="frame" x="0.0" y="0.0" width="440" height="956"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="my9-TH-iN4">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="my9-TH-iN4">
                                 <rect key="frame" x="10" y="373" width="420" height="210"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FaF-dj-gBd">
-                                        <rect key="frame" x="0.0" y="0.0" width="420" height="105"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="420" height="63.333333333333336"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="2 Players" cornerStyle="capsule">
                                             <fontDescription key="titleFontDescription" type="boldSystem" pointSize="50"/>
@@ -194,7 +194,7 @@ CFg
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TOu-qq-qKo">
-                                        <rect key="frame" x="0.0" y="105" width="420" height="105"/>
+                                        <rect key="frame" x="0.0" y="73.333333333333314" width="420" height="63.333333333333343"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Play with Computer" cornerStyle="capsule">
                                             <fontDescription key="titleFontDescription" type="boldSystem" pointSize="39"/>
@@ -204,6 +204,17 @@ CFg
                                             <segue destination="1OK-00-hnx" kind="show" id="fxF-rj-TyZ"/>
                                         </connections>
                                     </button>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="D09-1t-2Tz">
+                                        <rect key="frame" x="0.0" y="146.66666666666663" width="420" height="64.333333333333343"/>
+                                        <segments>
+                                            <segment title="Dumb"/>
+                                            <segment title="Easy "/>
+                                            <segment title="Boss"/>
+                                        </segments>
+                                        <connections>
+                                            <action selector="ModeSelected:" destination="P5a-dr-wbC" eventType="valueChanged" id="CcF-Ga-lr4"/>
+                                        </connections>
+                                    </segmentedControl>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="my9-TH-iN4" secondAttribute="height" multiplier="2:1" id="ir4-a0-ibl"/>
@@ -219,6 +230,9 @@ CFg
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="58u-6J-53d"/>
+                    <connections>
+                        <outlet property="selectMode" destination="D09-1t-2Tz" id="aoh-cU-ylC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1KU-a2-A3T" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

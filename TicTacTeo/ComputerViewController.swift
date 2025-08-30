@@ -42,7 +42,7 @@ class ComputerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        turnLabel.text = "Player's Turn"
+        turnLabel.text = "Play"
         initBoard()
     }
     
@@ -53,8 +53,12 @@ class ComputerViewController: UIViewController {
             return
         }
         addToBoard(sender)
-        IntelligentComputerTurn()
-        if checkForVictory("X") || checkForVictory("O"){
+        ComputerTurn()
+        if checkForVictory("O"){
+            resultAlert(title: "You Won!!")
+            return
+        }
+        if checkForVictory("X") {
             resultAlert(title: "Computer won")
             return
         }
@@ -71,7 +75,7 @@ class ComputerViewController: UIViewController {
             ComputerPlay.board[count] = button.currentAttributedTitle?.string ?? ""
             count += 1
         }
-        print(ComputerPlay.board)
+//        print(ComputerPlay.board)
     }
     func addToBoard(_ sender: UIButton){
         if sender.currentAttributedTitle != nil{
@@ -81,7 +85,7 @@ class ComputerViewController: UIViewController {
         if currentTurn == .O {
             attributeTittle = NSAttributedString(string: "O", attributes: oAttributes)
             currentTurn = .X
-            turnLabel.text = "Player's Turn"
+            turnLabel.text = "Play"
         }
         else if currentTurn == .X{
             attributeTittle = NSAttributedString(string: "X", attributes: xAttributes)
@@ -94,27 +98,25 @@ class ComputerViewController: UIViewController {
 
     }
     
-    func IntelligentComputerTurn(){
-        print("entered Intelligent")
-        if let move = ComputerPlay.bestMove(){
-            print("move \(move)")
-            addToBoard(board[move])
+    func ComputerTurn(){
+        var move : Int? = nil
+        switch ModeViewController.selectedMode{
+            case .Dumb:
+                move = ComputerPlay.randomMove()
+            case .Easy:
+                move = ComputerPlay.mediumMove()
+            case .Hard:
+                move = ComputerPlay.bestMove()
+        }
+        
+        if move != nil{
+            addToBoard(board[move!])
         }
         else{
-            print("somthing went wrong")
+            print("Something went wrong")
         }
     }
-    func RandomComputerTurn(){
-        if isFullBoard(){
-            return
-        }
-        let randomIndex = Int.random(in: 0..<board.count)
-        if board[randomIndex].currentAttributedTitle == nil{
-            addToBoard(board[randomIndex])
-            return
-        }
-        RandomComputerTurn()
-    }
+   
     
     func resetBoard(){
         for button in board{
@@ -124,14 +126,13 @@ class ComputerViewController: UIViewController {
             button.isEnabled = true
         }
         currentTurn = .X
-        turnLabel.text = "Player's Turn"
+        turnLabel.text = "Play"
         
     }
     func resultAlert(title: String){
         turnLabel .text = "Game Over"
         let ac = UIAlertController(title: title, message: "", preferredStyle: .actionSheet)
         ac.addAction(UIAlertAction(title: "Reset", style: .default, handler: { _ in
-            print("resetting borad")
             self.resetBoard()
         }))
         present(ac, animated: true)
