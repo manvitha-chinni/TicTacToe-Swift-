@@ -37,8 +37,7 @@ class TwoPlayerViewController: UIViewController {
     var firstTurn  = Turn.X
     var currentTurn = Turn.X
     
-    let NOUGHT = "O"
-    let CROSS = "X"
+
     var board : [UIButton] = []
     
     var XScore = 0
@@ -53,11 +52,11 @@ class TwoPlayerViewController: UIViewController {
     
     @IBAction func SelectedButton(_ sender: UIButton) {
         addToBoard(sender)
-        if(checkForVictory(CROSS)){
+        if(checkForVictory("X")){
             XScore += 1
             resultAlert(title: "X won Victory ")
         }
-        else if checkForVictory(NOUGHT){
+        else if checkForVictory("O"){
             OScore += 1
             resultAlert(title: "O won Victory")
         }
@@ -181,13 +180,13 @@ class TwoPlayerViewController: UIViewController {
             var attributeTitle: NSAttributedString?
             
             if(currentTurn == Turn.O){
-                attributeTitle = NSAttributedString(string: NOUGHT, attributes: oAttributes)
+                attributeTitle = NSAttributedString(string: "O", attributes: oAttributes)
 //                sender.setTitle(NOUGHT, for: .normal)
                 currentTurn = Turn.X
                 turnLabel.text  = "X's Turn"
             }
             else if(currentTurn == Turn.X){
-                attributeTitle = NSAttributedString(string: CROSS, attributes: xAttributes)
+                attributeTitle = NSAttributedString(string: "X", attributes: xAttributes)
 //                sender.setTitle(CROSS, for: .normal)
                 currentTurn = Turn.O
                 turnLabel.text = "O's Turn"
